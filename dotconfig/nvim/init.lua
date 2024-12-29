@@ -80,8 +80,9 @@ vim.api.nvim_create_autocmd("TextYankPost", {
 	end,
 })
 
-local color_file = ("%s/colorscheme.lua"):format(vim.fn.stdpath("config"))
-vim.cmd(("luafile %s"):format(color_file))
+-- Switch from custom Primary theme to
+-- local color_file = ("%s/colorscheme.lua"):format(vim.fn.stdpath("config"))
+-- vim.cmd(("luafile %s"):format(color_file))
 
 -- [[ Install `lazy.nvim` plugin manager ]]
 --    See `:help lazy.nvim.txt` or https://github.com/folke/lazy.nvim for more info
@@ -487,7 +488,7 @@ require("lazy").setup({
 			require("nvim-treesitter.configs").setup(opts)
 		end,
 	},
-
+	{ "catppuccin/nvim", name = "catppuccin", priority = 1000 },
 	--	require("plugins.indent_line"),
 	--	require("plugins.lint"),
 
@@ -519,4 +520,5 @@ require("lazy").setup({
 	},
 })
 
+vim.cmd.colorscheme("catppuccin")
 -- vim: ts=2 sts=2 sw=2 et

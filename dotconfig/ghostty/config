@@ -1,0 +1,2 @@
+theme = catppuccin-mocha
+keybind = global:ctrl+cmd+t=toggle_quick_terminal
