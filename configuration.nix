@@ -17,9 +17,14 @@
     ];
   homebrew = {
     enable = true;
+    onActivation = {
+      autoUpdate = true;
+      cleanup = "uninstall";
+      upgrade = true;
+    };
     caskArgs.no_quarantine = true;
     global.brewfile = true;
-    casks = [ "discord" "spotify" "whatsapp" "bitwarden" "bruno" "obsidian" "alfred" "zotero" "wezterm" "firefox" "transmission"];
+    casks = [ "discord" "spotify" "whatsapp" "bitwarden" "bruno" "obsidian" "alfred" "zotero" "ghostty" "firefox" "transmission"];
   };
   system.keyboard.enableKeyMapping = true;
   system.keyboard.remapCapsLockToEscape = true;
