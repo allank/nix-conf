@@ -14,6 +14,7 @@
     pkgs.uv 
     pkgs.ruff
     pkgs.go
+    pkgs.podman
     ];
   homebrew = {
     enable = true;
