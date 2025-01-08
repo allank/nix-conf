@@ -15,6 +15,8 @@
     pkgs.ruff
     pkgs.go
     pkgs.podman
+    pkgs.docker
+    pkgs.colima
     ];
   homebrew = {
     enable = true;
