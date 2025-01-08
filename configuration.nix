@@ -14,7 +14,6 @@
     pkgs.uv 
     pkgs.ruff
     pkgs.go
-    pkgs.podman
     pkgs.docker
     pkgs.colima
     ];
