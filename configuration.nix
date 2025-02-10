@@ -15,6 +15,7 @@
     pkgs.ruff
     pkgs.go
     pkgs.hugo
+    pkgs.dart-sass
     pkgs.docker
     pkgs.colima
     ];
