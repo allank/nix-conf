@@ -28,7 +28,7 @@
     };
     caskArgs.no_quarantine = true;
     global.brewfile = true;
-    casks = [ "discord" "spotify" "whatsapp" "bitwarden" "bruno" "obsidian" "alfred" "zotero" "ghostty" "firefox" "transmission"];
+    casks = [ "discord" "spotify" "whatsapp" "bitwarden" "bruno" "obsidian" "alfred" "zotero" "ghostty" "firefox" "transmission" "cursor" "visual-studio-code"];
   };
   system.keyboard.enableKeyMapping = true;
   system.keyboard.remapCapsLockToEscape = true;
