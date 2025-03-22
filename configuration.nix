@@ -15,7 +15,12 @@
     pkgs.ruff
     pkgs.go
     pkgs.hugo
+    pkgs.templ
+    pkgs.air
     pkgs.dart-sass
+    pkgs.nodejs_23
+    pkgs.bun
+    pkgs.tailwindcss_4
     pkgs.docker
     pkgs.colima
     ];
