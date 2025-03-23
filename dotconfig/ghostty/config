@@ -1,2 +1,2 @@
-theme = catppuccin-latte
+theme = catppuccin-mocha
 keybind = global:cmd+.=toggle_quick_terminal
