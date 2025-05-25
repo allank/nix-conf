@@ -28,16 +28,37 @@
     };
   };
   programs.jq.enable = true;
+  programs.starship = {
+    enable = true;
+    enableFishIntegration = true;
+  };
 
-  programs.zsh.enable = true;
-  programs.zsh.enableCompletion = true;
+  programs.fish = {
+    enable = true;
+    plugins = [
+      { name = "grc"; src = pkgs.fishPlugins.grc.src;}
+    ];
+    shellAliases = {
+      ls = "eza --color=always";
+      cat = "bat";
+      less = "bat";
+    };
+    loginShellInit = ''
+      fish_add_path /nix/var/nix/profiles/default/bin
+      fish_add_path ~/.nix-profile/bin
+      fish_add_path /etc/profiles/per-user/$USER/bin
+      fish_add_path /run/current-system/sw/bin
+      fish_add_path /opt/homebrew/bin
+    '';
+  };
+  # programs.zsh.enable = true;
+  # programs.zsh.enableCompletion = true;
+  #
+  # programs.zsh.syntaxHighlighting.enable = true;
+  # programs.zsh.autosuggestion.enable = true;
+  # programs.zsh.shellAliases = { ls = "eza --color=always"; cat = "bat"; less = "bat"; };
 
-  programs.zsh.syntaxHighlighting.enable = true;
-  programs.zsh.autosuggestion.enable = true;
-  programs.zsh.shellAliases = { ls = "eza --color=always"; cat = "bat"; less = "bat"; };
-
-  programs.starship.enable = true;
-  programs.starship.enableZshIntegration = true;
+ # programs.starship.enableZshIntegration = true;
 
   programs.neovim.enable = true;
 }

@@ -1,2 +1,4 @@
 theme = catppuccin-mocha
 keybind = global:cmd+.=toggle_quick_terminal
+shell-integration = fish
+command = "/etc/profiles/per-user/allank/bin/fish"

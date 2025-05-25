@@ -6,9 +6,10 @@
   fonts.packages = [ pkgs.nerd-fonts.fira-code ];
   programs.zsh.enable = true;
   environment.systemPath = [ "/opt/homebrew/bin" ];
-  environment.shells = [ pkgs.zsh ];
+  environment.shells = [ pkgs.zsh pkgs.fish ];
   environment.systemPackages = [ 
-    pkgs.zsh 
+    # pkgs.zsh 
+    pkgs.fish
     pkgs.tmux
     pkgs.python3Full
     pkgs.uv 
@@ -21,8 +22,13 @@
     pkgs.nodejs_23
     pkgs.bun
     pkgs.tailwindcss_4
+    pkgs.atac
     pkgs.docker
     pkgs.colima
+    pkgs.xh
+    pkgs.gitui
+    pkgs.dust
+    pkgs.yazi
     ];
   homebrew = {
     enable = true;
@@ -33,7 +39,7 @@
     };
     caskArgs.no_quarantine = true;
     global.brewfile = true;
-    casks = [ "discord" "spotify" "whatsapp" "bitwarden" "bruno" "obsidian" "alfred" "zotero" "ghostty" "firefox" "transmission" "cursor" "visual-studio-code"];
+    casks = [ "discord" "spotify" "whatsapp" "bitwarden" "obsidian" "alfred" "zotero" "ghostty" "firefox" "transmission" "hammerspoon"];
   };
   system.keyboard.enableKeyMapping = true;
   system.keyboard.remapCapsLockToEscape = true;
