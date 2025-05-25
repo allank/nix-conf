@@ -14,7 +14,7 @@
   programs.bat = {
     enable = true;
     config = {
-      theme = "Catppuccin-mocha";
+      theme = "TwoDark";
     };
   };
   programs.eza.enable = true;
