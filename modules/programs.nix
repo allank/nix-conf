@@ -16,7 +16,7 @@
     pkgs.templ
     pkgs.air
     pkgs.dart-sass
-    pkgs.nodejs_23
+    pkgs.nodejs_24
     pkgs.bun
     pkgs.tailwindcss_4
     # CLI utilities
