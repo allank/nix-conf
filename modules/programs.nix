@@ -11,6 +11,7 @@
     pkgs.uv 
     pkgs.ruff
     pkgs.go
+    pkgs.gopls
     pkgs.hugo
     pkgs.templ
     pkgs.air
