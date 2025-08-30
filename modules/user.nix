@@ -77,5 +77,28 @@
       fish_add_path /run/current-system/sw/bin
       fish_add_path /opt/homebrew/bin
     '';
+    functions = {
+      bind_bang = ''
+        switch (commandline -t)[-1]
+            case "!"
+                commandline -t -- $history[1]
+                commandline -f repaint
+            case "*"
+                commandline -i !
+        end
+      '';
+      bind_dollar = ''
+        switch (commandline -t)[-1]
+            case "!"
+                commandline -f backward-delete-char history-token-search-backward
+            case "*"
+                commandline -i '$'
+        end
+      '';
+    };
+    keyBindings = {
+      "!" = "bind_bang";
+      "$" = "bind_dollar";
+    };
   };
 }

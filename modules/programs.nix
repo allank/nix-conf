@@ -21,6 +21,7 @@
     pkgs.tailwindcss_4
     # CLI utilities
     pkgs.atac
+    pkgs.grc
     pkgs.docker
     pkgs.colima
     pkgs.xh
