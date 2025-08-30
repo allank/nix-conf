@@ -3,6 +3,8 @@
 {
   system.stateVersion = 5;
 
+  system.primaryUser = "allank";
+
   fonts.packages = [ pkgs.nerd-fonts.fira-code ];
   
   environment.systemPath = [ "/opt/homebrew/bin" ];
