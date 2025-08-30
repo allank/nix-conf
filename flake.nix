@@ -9,10 +9,10 @@
     home-manager.url = "github:nix-community/home-manager/master";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
-    neovim.url = "github:nix-community/neovim-nightly-overlay";
+    neovim-nightly-overlay.url = "github:nix-community/neovim-nightly-overlay";
   };
 
-  outputs = inputs@{ self, nixpkgs, darwin, home-manager, ... }: {
+  outputs = inputs@{ self, nixpkgs, darwin, home-manager, neovim-nightly-overlay, ... }: {
     darwinConfigurations = {
       "Allans-MacBook-Pro" = darwin.lib.darwinSystem {
         system = "x86_64-darwin";
@@ -20,6 +20,7 @@
           ./configuration.nix
           home-manager.darwinModules.home-manager
           {
+            nixpkgs.overlays = [ neovim-nightly-overlay.overlays.default ];
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
 	    users.knownUsers = [ "allank" ];

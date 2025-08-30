@@ -66,7 +66,7 @@
       { name = "grc"; src = pkgs.fishPlugins.grc.src;}
     ];
     shellAliases = {
-      ls = "eza --color=always";
+      ls = "exa --color=always";
       cat = "bat";
       less = "bat";
     };
