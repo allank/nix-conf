@@ -22,6 +22,8 @@
       "firefox" 
       "transmission" 
       "hammerspoon"
+      "karabiner-elements"
+      "nikitabobko/tap/aerospace"
     ];
   };
 }

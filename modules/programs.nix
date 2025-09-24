@@ -4,8 +4,6 @@
   programs.zsh.enable = true;
   
   environment.systemPackages = [ 
-    pkgs.aerospace
-    pkgs.karabiner-elements
     pkgs.fish
     pkgs.tmux
     # Development tools
