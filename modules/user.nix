@@ -4,6 +4,11 @@
   home.username = "allank";
   home.stateVersion = "24.05";
   home.homeDirectory = "/Users/allank";
+
+  home.packages = [
+    pkgs.grc
+  ];
+
   home.file.".config" = {
     source = ../dotconfig;
     recursive = true;
@@ -95,10 +100,10 @@
                 commandline -i '$'
         end
       '';
-    };
-    keyBindings = {
-      "!" = "bind_bang";
-      "$" = "bind_dollar";
+      fish_user_key_bindings = ''
+        bind ! bind_bang
+        bind '$' bind_dollar
+      '';
     };
   };
 }
