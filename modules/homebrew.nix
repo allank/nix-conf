@@ -10,6 +10,9 @@
     };
     caskArgs.no_quarantine = true;
     global.brewfile = true;
+    brews = [
+      "colima"
+    ];
     casks = [ 
       "discord" 
       "spotify" 

@@ -17,7 +17,8 @@
     # CLI utilities
     pkgs.atac
     pkgs.docker
-    pkgs.colima
+    #    pkgs.colima
+    # colima outdated in nixpkgs
     pkgs.xh
     pkgs.gitui
     pkgs.dust
