@@ -7,7 +7,7 @@
     pkgs.fish
     pkgs.tmux
     # Development tools
-    pkgs.python3Full
+    pkgs.python312
     pkgs.uv 
     pkgs.ruff
     pkgs.go
