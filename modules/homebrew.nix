@@ -11,7 +11,9 @@
     caskArgs.no_quarantine = true;
     global.brewfile = true;
     brews = [
+      "qemu"
       "colima"
+      "gemini-cli"
     ];
     casks = [ 
       "discord" 
