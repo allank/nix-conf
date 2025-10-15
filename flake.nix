@@ -9,10 +9,21 @@
     home-manager.url = "github:nix-community/home-manager/master";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
+    nix-homebrew.url = "github:zhaofengli/nix-homebrew";
+
+    homebrew-core = {
+      url = "github:homebrew/homebrew-core";
+      flake = false;
+    };
+    homebrew-cask = {
+      url = "github:homebrew/homebrew-cask";
+      flake = false;
+    };
+
     neovim-nightly-overlay.url = "github:nix-community/neovim-nightly-overlay";
   };
 
-  outputs = inputs@{ self, nixpkgs, darwin, home-manager, neovim-nightly-overlay, ... }: {
+  outputs = inputs@{ self, nixpkgs, darwin, home-manager, nix-homebrew, homebrew-core, homebrew-cask, neovim-nightly-overlay, ... }: {
     darwinConfigurations = {
       "Allans-MacBook-Pro" = darwin.lib.darwinSystem {
         system = "x86_64-darwin";
@@ -31,6 +42,9 @@
             };
             home-manager.users.allank = import ./home.nix;
           }
+        ({config, ...}: {
+          homebrew.taps = builtins.attrNames config.nix-homebrew.taps;
+        })
         ];
       };
     };
