@@ -30,6 +30,7 @@
         modules = [
           ./configuration.nix
           home-manager.darwinModules.home-manager
+          nix-homebrew.darwinModules.nix-homebrew
           {
             nixpkgs.overlays = [ neovim-nightly-overlay.overlays.default ];
             home-manager.useGlobalPkgs = true;
