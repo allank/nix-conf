@@ -20,10 +20,11 @@
       flake = false;
     };
 
-    neovim-nightly-overlay.url = "github:nix-community/neovim-nightly-overlay";
+    # neovim-nightly-overlay.url = "github:nix-community/neovim-nightly-overlay";
   };
 
-  outputs = inputs@{ self, nixpkgs, darwin, home-manager, nix-homebrew, homebrew-core, homebrew-cask, neovim-nightly-overlay, ... }: {
+  # outputs = inputs@{ self, nixpkgs, darwin, home-manager, nix-homebrew, homebrew-core, homebrew-cask, neovim-nightly-overlay, ... }: {
+  outputs = inputs@{ self, nixpkgs, darwin, home-manager, nix-homebrew, homebrew-core, homebrew-cask, ... }: {
     darwinConfigurations = {
       "Allans-MacBook-Pro" = darwin.lib.darwinSystem {
         system = "x86_64-darwin";
@@ -32,7 +33,7 @@
           home-manager.darwinModules.home-manager
           nix-homebrew.darwinModules.nix-homebrew
           {
-            nixpkgs.overlays = [ neovim-nightly-overlay.overlays.default ];
+            # nixpkgs.overlays = [ neovim-nightly-overlay.overlays.default ];
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
 	    users.knownUsers = [ "allank" ];

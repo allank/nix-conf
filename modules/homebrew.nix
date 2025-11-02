@@ -10,6 +10,9 @@
     };
     caskArgs.no_quarantine = true;
     global.brewfile = true;
+    taps = [
+      "nikitabobko/tap"
+    ];
     brews = [
       "qemu"
       "colima"
@@ -28,7 +31,7 @@
       "transmission" 
       "hammerspoon"
       "karabiner-elements"
-      "nikitabobko/tap/aerospace"
+      "aerospace"
     ];
   };
 }
