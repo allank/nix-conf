@@ -47,14 +47,14 @@
   # Git configuration
   programs.git = {
     enable = true;
-    userName = "allank";
-    userEmail = "allan.kent@gmail.com";
     ignores = [
       ".DS_Store"
       "*.pyc"
       ".venv"
     ];
-    extraConfig = {
+    settings = {
+      user.name = "allank";
+      user.email = "allan.kent@gmail.com";
       init.defaultBranch = "main";
     };
   };
