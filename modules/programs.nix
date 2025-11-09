@@ -14,6 +14,7 @@
     pkgs.gopls
     pkgs.nodejs_24
     pkgs.bun
+    pkgs.hugo
     # CLI utilities
     pkgs.atac
     pkgs.docker

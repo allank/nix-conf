@@ -1,0 +1,90 @@
+#!/usr/bin/env fish
+
+
+# --- Configuration ---
+set -l CONFIG_DIR "."
+set -l FLAKE_TARGET "Allans-MacBook-Pro"
+# ---------------------
+
+# 1. Define command-line arguments
+set -l options \
+    'h/help' \
+    's/stable' \
+    'u/unstable' \
+    'f/flake' \
+    'r/rebuild' \
+    'g/garbage' \
+    'a/all'
+
+# 2. Parse arguments
+argparse $options -- $argv
+or exit 1
+
+# 3. Handle help flag
+if set -q _flag_help
+    echo "Usage: nix-update [flags]"
+    echo ""
+    echo "Select tasks to run:"
+    echo "  -s, --stable    Update stable channel"
+    echo "  -u, --unstable  Update unstable channel"
+    echo "  -f, --flake     Update flake inputs"
+    echo "  -r, --rebuild   Rebuild system"
+    echo "  -g, --garbage   Garbage collect"
+    echo "  -a, --all       Run all of the above"
+    echo "  -h, --help      Show this help message"
+    exit 0
+end
+
+# 4. Handle "no flags"
+if test -z "$_flag_stable" -a -z "$_flag_unstable" -a -z "$_flag_flake" -a -z "$_flag_rebuild" -a -z "$_flag_garbage" -a -z "$_flag_all"
+    echo "No tasks selected. Run 'nix-update --help' for options."
+    exit 0
+end
+
+# 5. Execute tasks based on flags
+# 'or exit 1' stops the script if that command fails.
+if set -q _flag_all; or set -q _flag_stable
+    echo "Updating stable channel..."
+    nix-channel --update
+    or exit 1
+end
+
+if set -q _flag_all; or set -q _flag_unstable
+    echo "Updating unstable channel..."
+    nix-channel --update unstable
+    or exit 1
+end
+
+if set -q _flag_all; or set -q _flag_flake
+    # Check if flake.nix exists before trying to update
+    if not test -f "$CONFIG_DIR/flake.nix"
+        echo "Error: 'flake.nix' not found at $CONFIG_DIR/flake.nix" >&2
+        exit 1
+    end
+    echo "Updating flake inputs in $CONFIG_DIR..."
+    nix flake update
+    or exit 1
+end
+
+if set -q _flag_all; or set -q _flag_rebuild
+    # Check if flake.nix exists before trying to rebuild
+    if not test -f "$CONFIG_DIR/flake.nix"
+        echo "Error: 'flake.nix' not found at $CONFIG_DIR/flake.nix" >&2
+        exit 1
+    end
+    echo "Rebuilding system ($FLAKE_TARGET)..."
+    sudo darwin-rebuild switch --flake "$CONFIG_DIR#$FLAKE_TARGET"
+    or exit 1
+end
+
+if set -q _flag_all; or set -q _flag_garbage
+    # Check if flake.nix exists before trying to rebuild
+    if not test -f "$CONFIG_DIR/flake.nix"
+        echo "Error: 'flake.nix' not found at $CONFIG_DIR/flake.nix" >&2
+        exit 1
+    end
+    echo "Running garbage collection..."
+    sudo nix-collect-garbage -d
+    or exit 1
+end
+echo "Selected tasks complete."
